@@ -32,7 +32,7 @@ public class Arm extends Subsystem {
 	private double kd = 0;
 
 	public boolean overAmped = false;
-	public final double maxCurrent = 5;
+	public final double maxCurrent = 15; //TODO: this is a rough estimate
 
 	public Arm() {
 		rightArm = new CANTalon(RobotMap.RightArmMotor);
