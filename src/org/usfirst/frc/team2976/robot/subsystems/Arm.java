@@ -27,7 +27,7 @@ public class Arm extends Subsystem {
 	public PIDMain rightArmPID;
 	public PIDMain leftArmPID;
 
-	private double kp = 0.1;
+	private double kp = 0;
 	private double ki = 0;
 	private double kd = 0;
 

@@ -26,7 +26,7 @@ public class RobotMap {
 	public static final int LeftArmEncoderB = 1;
 	
 	//Roller
-	public static final int rollerMotorID = 6; 
+	public static final int rollerMotorID = 7; 
 	
 	//Gyro for Drive Straight
 	public static final int Gyro = 1;
