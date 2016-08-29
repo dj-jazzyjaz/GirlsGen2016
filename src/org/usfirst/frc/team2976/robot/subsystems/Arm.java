@@ -56,6 +56,8 @@ public class Arm extends Subsystem {
 		leftArmPID = new PIDMain(leftArmPIDSource, 0, 100, kp, ki, kd);
 		rightArmPID.isEnabled(true);
 		leftArmPID.isEnabled(true);
+		rightArmPID.setOutputLimits(-0.3, 0.3);
+		leftArmPID.setOutputLimits(-0.3, 0.3);
 	}
 
 	public void setPosition(double position) {
