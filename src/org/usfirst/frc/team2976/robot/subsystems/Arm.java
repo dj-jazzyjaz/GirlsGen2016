@@ -56,6 +56,7 @@ public class Arm extends Subsystem {
 		leftArmPID = new PIDMain(leftArmPIDSource, 0, 100, kp, ki, kd);
 		rightArmPID.isEnabled(true);
 		leftArmPID.isEnabled(true);
+		
 		rightArmPID.setOutputLimits(-0.3, 0.3);
 		leftArmPID.setOutputLimits(-0.3, 0.3);
 	}
@@ -69,7 +70,6 @@ public class Arm extends Subsystem {
 	public void setPower(double rightPower, double leftPower) {
 		SmartDashboard.putNumber("ArmOutputCurrentAverage",
 				(leftArm.getOutputCurrent() + rightArm.getOutputCurrent()) / 2);
-		
 		if (rightArm.getOutputCurrent() > maxCurrent || leftArm.getOutputVoltage() > maxCurrent) {
 			overAmped = true;
 		}
@@ -83,7 +83,6 @@ public class Arm extends Subsystem {
 			rightArm.set(0);
 			leftArm.set(0);
 		}
-
 	}
 
 	public void initDefaultCommand() {

@@ -20,16 +20,13 @@ public class RollerForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.roller.setRollerPower(0.3);
-    	/*
     	if(Robot.oi.armStick.getRawButton(OI.Button.A.getBtnNumber()))	{
     		Robot.roller.setRollerPower(0.3);
     	}	else if (Robot.oi.armStick.getRawButton(OI.Button.B.getBtnNumber())){
-    		Robot.roller.setRollerPower(-0.3);
+    		Robot.roller.setRollerPower(-0.5);
     	}	else	{
     		Robot.roller.setRollerPower(0);
     	}
-    	*/
     }
 
     // Make this return true when this Command no longer needs to run execute()

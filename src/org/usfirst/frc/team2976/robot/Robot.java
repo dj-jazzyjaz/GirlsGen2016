@@ -43,6 +43,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		driveTrain = new DriveTrain();
         arm = new Arm();
+        roller = new Roller();
         
 		chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new ExampleCommand());
