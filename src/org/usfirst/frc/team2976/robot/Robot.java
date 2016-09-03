@@ -39,15 +39,18 @@ public class Robot extends IterativeRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    public void robotInit() {
-		oi = new OI();
+    public void robotInit() {	
 		//driveTrain = new DriveTrain();
-        arm = new Arm();
+        //arm = new Arm();
         roller = new Roller();
+        
+        
+       //OI must be declared after the subsystems have been
+        oi = new OI(); 
         
 		chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new ExampleCommand());
-//        chooser.addObject("My Auto", new MyAutoCommand());
+//      chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
     }
 	

@@ -19,7 +19,7 @@ public class Roller extends Subsystem {
 		roller.set(power);
 	}
     public void initDefaultCommand() {
-        setDefaultCommand(new RollerForward());
+        setDefaultCommand(new RollerForward(0));
     }
 }
 

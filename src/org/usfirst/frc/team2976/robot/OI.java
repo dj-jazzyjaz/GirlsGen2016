@@ -2,7 +2,10 @@ package org.usfirst.frc.team2976.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team2976.robot.commands.ExampleCommand;
+import org.usfirst.frc.team2976.robot.commands.RollerForward;
+import org.usfirst.frc.team2976.robot.subsystems.Roller;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -10,7 +13,7 @@ import org.usfirst.frc.team2976.robot.commands.ExampleCommand;
  */
 public class OI {
     public Joystick driveStick;
-    public Joystick armStick;
+    public Joystick armStick; 
 	
     public enum Button {
 		RBumper(6), LBumper(5), A(1), B(2), X(3), Y(4), RightJoystickBtn(10), LeftJoystickBtn(9);
@@ -41,6 +44,9 @@ public class OI {
 	public OI() {
 		driveStick = new Joystick(0);
 		armStick = new Joystick(1);
+		new JoystickButton(driveStick, 1).whileHeld(new RollerForward(0.3));
+		new JoystickButton(driveStick, 2).whileHeld(new RollerForward(-0.5));
+		                      
 	}
 	//// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
