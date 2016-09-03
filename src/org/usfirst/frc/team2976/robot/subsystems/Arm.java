@@ -27,7 +27,7 @@ public class Arm extends Subsystem {
 	public PIDMain rightArmPID;
 	public PIDMain leftArmPID;
 
-	private double kp = 0;
+	private double kp = 0.05;
 	private double ki = 0;
 	private double kd = 0;
 
@@ -43,11 +43,13 @@ public class Arm extends Subsystem {
 
 		rightArmPIDSource = new PIDSource() {
 			public double getInput() {
-				return rightArmEncoder.get();
+				SmartDashboard.putNumber("RightArm", -rightArmEncoder.get());
+				return -rightArmEncoder.get();
 			}
 		};
 		leftArmPIDSource = new PIDSource() {
 			public double getInput() {
+				SmartDashboard.putNumber("LeftArm", leftArmEncoder.get());
 				return leftArmEncoder.get();
 			}
 		};
@@ -57,8 +59,8 @@ public class Arm extends Subsystem {
 		rightArmPID.isEnabled(true);
 		leftArmPID.isEnabled(true);
 		
-		rightArmPID.setOutputLimits(-0.3, 0.3);
-		leftArmPID.setOutputLimits(-0.3, 0.3);
+		rightArmPID.setOutputLimits(-1, 1);
+		leftArmPID.setOutputLimits(-1, 1);
 	}
 
 	public void setPosition(double position) {
@@ -70,6 +72,7 @@ public class Arm extends Subsystem {
 	public void setPower(double rightPower, double leftPower) {
 		SmartDashboard.putNumber("ArmOutputCurrentAverage",
 				(leftArm.getOutputCurrent() + rightArm.getOutputCurrent()) / 2);
+		
 		if (rightArm.getOutputCurrent() > maxCurrent || leftArm.getOutputVoltage() > maxCurrent) {
 			overAmped = true;
 		}

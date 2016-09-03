@@ -41,7 +41,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
-		driveTrain = new DriveTrain();
+		//driveTrain = new DriveTrain();
         arm = new Arm();
         roller = new Roller();
         

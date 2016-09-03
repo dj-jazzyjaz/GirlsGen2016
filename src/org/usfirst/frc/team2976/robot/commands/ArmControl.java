@@ -10,15 +10,14 @@ import util.PIDMain;
  *
  */
 public class ArmControl extends Command {
-	double ArmDownValue = 500;
+	double ArmDownValue = -500;
     public ArmControl() {
     	requires(Robot.arm);
     }
-
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
-
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	double position = Robot.oi.armStick.getRawAxis(OI.Axis.RY.getAxisNumber());
